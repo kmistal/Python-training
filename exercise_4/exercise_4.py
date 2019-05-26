@@ -11,7 +11,7 @@ def start():
 
 def print_header():
     print('---------------------')
-    print('     JOURNAL APP    ')
+    print('     JOURNAL APP     ')
     print('---------------------')
 
 
@@ -34,12 +34,11 @@ def fetch_entries():
     print('... Loading from journal.json ...')
 
     global journal_entries
-    journal_file = open('journal.json', 'r')
+    journal_file = open('files/journal.json', 'r')
     file_content = journal_file.read()
 
     if len(file_content) != 0:
-        temp = json.loads(file_content)
-        journal_entries = temp
+        journal_entries = json.loads(file_content)
 
     print('... Loaded {} entries ...'.format(len(journal_entries)))
     journal_file.close()
