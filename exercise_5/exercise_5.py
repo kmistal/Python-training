@@ -1,5 +1,6 @@
 import requests
 import json
+from key_store import app_id
 from weather_report import WeatherReport
 
 
@@ -37,7 +38,7 @@ def is_valid_zip_code(zip_code):
 
 def fetch_weather_by_zip_code(zip_code):
     url = 'http://api.openweathermap.org/data/2.5/weather?zip={}'.format(
-        zip_code) + ',us&units=metric&appid=2bc86fb60cfe238e3c893cc1d0065b24'
+        zip_code) + ',us&units=metric&appid={}'.format(app_id)
     response = requests.get(url)
     if response.status_code == 200:
         weather_data = response.json()
